@@ -26,7 +26,7 @@ function CollectionGridSection() {
   if (collections.length === 0) return;
 
   return (
-    <div className="w-full max-w-[1280px] mx-auto px-3 md:px-4 lg:px-8 py-12 md:py-0">
+    <div className="w-full max-w-[1280px] mx-auto px-3 md:px-4 lg:px-8">
       <h2 className="text-3xl text-neutral-900 font-semibold mb-8">Our Collections</h2>
       <CollectionGrid collections={collections} />
     </div>
