@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom background */
+.bg-collection {
+  background: linear-gradient(60deg, rgba(0, 0, 0, 0.4) -9.37%, rgba(0, 0, 0, 0.132) 100%);
+}
+.bg-collection:hover {
+  background: linear-gradient(360deg, rgba(0, 0, 0, 0.6) -9.37%, rgba(0, 0, 0, 0.198) 100%);
+}
