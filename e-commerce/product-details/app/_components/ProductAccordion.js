@@ -2,7 +2,7 @@ import ProductAccordionItem from "./ProductAccordionItem";
 
 function ProductAccordion() {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 h-[532px]">
       <ProductAccordionItem
         title={"Features"}
         list={[

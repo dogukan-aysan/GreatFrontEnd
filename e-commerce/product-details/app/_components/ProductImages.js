@@ -1,19 +1,26 @@
+import { useContext, useEffect, useState } from "react";
+
 import ProductPrimaryImage from "./ProductPrimaryImage";
 import ProductSecondaryImage from "./ProductSecondaryImage";
+import ProductContext from "../_contexts/ProductContext";
 
 function ProductImages() {
+  const { primaryImg, setPrimaryImg, images } = useContext(ProductContext);
+
+  function handleImageClick(url) {
+    const selectedImg = images.find((image) => {
+      return image.image_url === url;
+    });
+    setPrimaryImg(selectedImg);
+  }
+
   return (
     <div className="h-fit flex flex-col gap-6 overflow-x-hidden">
-      <ProductPrimaryImage
-        url={
-          "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/autumnal-knitwear/autumnal-knitwear-1.jpg"
-        }
-      />
+      <ProductPrimaryImage url={primaryImg.image_url} />
       <div className="h-[120px] sm:h-[190px] flex gap-4 overflow-x-auto">
-        <ProductSecondaryImage url="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/autumnal-knitwear/autumnal-knitwear-1.jpg" />
-        <ProductSecondaryImage url="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/autumnal-knitwear/autumnal-knitwear-1.jpg" />
-        <ProductSecondaryImage url="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/autumnal-knitwear/autumnal-knitwear-1.jpg" />
-        <ProductSecondaryImage url="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/autumnal-knitwear/autumnal-knitwear-1.jpg" />
+        {images.map((image, index) => (
+          <ProductSecondaryImage key={index} url={image.image_url} onImageClick={handleImageClick} primaryImg={primaryImg} />
+        ))}
       </div>
     </div>
   );

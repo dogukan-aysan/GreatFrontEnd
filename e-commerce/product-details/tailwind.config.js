@@ -4,6 +4,10 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {},
+      boxShadow: {
+        swatche: "0 0 0 1px #444CE7",
+        selectedImage: "inset 3px 3px 0px 0px rgba(79,70,229,1), inset -3px -3px 0px 0px rgba(79,70,229,1)",
+      },
     },
   },
   plugins: [],

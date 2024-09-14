@@ -10,12 +10,16 @@ function ProductAccordionItem({ title, list, border = false }) {
         <ul className="pl-2 text-base text-neutral-600">
           {list.map((item, index) => (
             <li className="flex gap-2" key={index}>
-              <span className="w-1.5 h-1.5 relative top-2 shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"></path>
-                </svg>
-              </span>
-              <p className="">{item}</p>
+              {isOpen && (
+                <>
+                  <span className="w-1.5 h-1.5 relative top-2 shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"></path>
+                    </svg>
+                  </span>
+                  <p>{item}</p>
+                </>
+              )}
             </li>
           ))}
         </ul>
