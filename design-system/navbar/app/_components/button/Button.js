@@ -4,7 +4,16 @@ import clsx from "clsx";
 
 import IconContainer from "./IconContainer";
 
-function Button({ children, size, variant, iconLeft = null, iconRight = null, iconOnly = false, disabled = false, onClickFunc = null }) {
+function Button({
+  children,
+  size = "md",
+  variant = "primary",
+  iconLeft = null,
+  iconRight = null,
+  iconOnly = false,
+  disabled = false,
+  onClickFunc = null,
+}) {
   const isLink = variant.includes("link");
   const buttonOrLink = isLink ? "link" : "button";
   const iconBoth = iconLeft && iconRight;
@@ -64,7 +73,7 @@ function Button({ children, size, variant, iconLeft = null, iconRight = null, ic
     <button
       onClick={handleClick}
       className={clsx(
-        "w-fit h-fit focus:outline-none focus:ring-4",
+        "w-full h-fit focus:outline-none focus:ring-4",
         disabled ? variantUtils.disabled : variantUtils[variant],
         sizeUtils[size].common,
         iconOnly ? sizeUtils[size][buttonOrLink].iconOnly : sizeUtils[size][buttonOrLink].labelVisible
