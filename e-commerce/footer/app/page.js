@@ -5,9 +5,9 @@ import Footer from "./_components/ui/Footer";
 export default function Home() {
   return (
     <MainContainer>
-      <SectionContainer>
-        <Footer />
-      </SectionContainer>
+        <SectionContainer>
+          <Footer />
+        </SectionContainer>
     </MainContainer>
   );
 }
