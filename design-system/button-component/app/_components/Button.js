@@ -16,7 +16,6 @@ function Button({
 }) {
   const isLink = variant.includes("link");
   const buttonOrLink = isLink ? "link" : "button";
-  const iconBoth = iconLeft && iconRight;
 
   const sizeUtils = {
     md: {
@@ -82,24 +81,12 @@ function Button({
       <>
         {iconOnly ? (
           <IconContainer size={size}>{iconOnly}</IconContainer>
-        ) : iconBoth ? (
-          <>
-            <IconContainer size={size}>{iconLeft}</IconContainer>
-            <p className="px-0.5">{children}</p>
-            <IconContainer size={size}>{iconRight}</IconContainer>
-          </>
-        ) : iconLeft ? (
-          <>
-            <IconContainer size={size}>{iconLeft}</IconContainer>
-            <p className="px-0.5">{children}</p>
-          </>
-        ) : iconRight ? (
-          <>
-            <p className="px-0.5">{children}</p>
-            <IconContainer size={size}>{iconRight}</IconContainer>
-          </>
         ) : (
-          <p className="px-0.5">{children}</p>
+          <>
+            {iconLeft && <IconContainer size={size}>{iconLeft}</IconContainer>}
+            <p className="px-0.5">{children}</p>
+            {iconRight && <IconContainer size={size}>{iconRight}</IconContainer>}
+          </>
         )}
       </>
     </button>

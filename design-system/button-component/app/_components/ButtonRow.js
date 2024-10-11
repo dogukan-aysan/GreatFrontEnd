@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import Button from "./Button";
 
 const starIcon = (
@@ -10,7 +11,7 @@ const starIcon = (
 
 function ButtonRow({ variant }) {
   return (
-    <ul className="flex flex-wrap items-center gap-5 w-[323px] min-[376px]:w-full">
+    <ul className="w-[323px] min-[376px]:w-fit flex flex-wrap items-center gap-5">
       <li>
         <Button size={"md"} variant={variant}>
           Button CTA
@@ -27,7 +28,7 @@ function ButtonRow({ variant }) {
         </Button>
       </li>
       <li>
-        <Button size={"xxl"} variant={variant}>
+        <Button size={clsx(variant === "tertiary" ? "xl" : "xxl")} variant={variant}>
           Button CTA
         </Button>
       </li>
